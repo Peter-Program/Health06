@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuMainActivitySettings"
+        android:title="@string/settings" />
+    <item
+        android:id="@+id/menuMainActivityCurrentSettings"
+        android:enabled="true"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/current_settings"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuMainActivityAbout"
+        android:title="@string/about" />
+
+</menu>
