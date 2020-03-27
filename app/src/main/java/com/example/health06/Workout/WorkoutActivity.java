@@ -1,15 +1,19 @@
-package com.example.health06;
+package com.example.health06.Workout;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SettingsActivity extends BaseActivity {
+import com.example.health06.BaseActivity;
+import com.example.health06.R;
+
+public class WorkoutActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_workout);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)

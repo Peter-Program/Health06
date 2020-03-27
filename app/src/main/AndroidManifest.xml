@@ -19,7 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/SettingsActivityTitle" />
+        <activity
+            android:name=".Workout.WorkoutActivity"
+            android:label="@string/WorkoutActivityTitle" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashTheme">
@@ -29,15 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".MainActivity"
-            android:label="Home" />
+            android:label="@string/HomeScreenActivityTitle" />
     </application>
 
 </manifest>
