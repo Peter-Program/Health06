@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.health06.Nutrition.NutritionActivity;
 import com.example.health06.Workout.WorkoutActivity;
 
 public class MainActivity extends BaseActivity {
@@ -21,6 +22,9 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         Button workoutButton = findViewById(R.id.workoutButton);
+
+        Button nutritionButton = findViewById(R.id.nutritionButton);
+
     }
 
     public void onClickWorkout(View view) {
@@ -30,4 +34,13 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
 
     }
+
+    public void onClickNutrition(View view) {
+        Toast.makeText(this, "Clicked Nutrition",
+                Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, NutritionActivity.class);
+        startActivity(intent);
+    }
+
+
 }

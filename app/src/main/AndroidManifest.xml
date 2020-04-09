@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Nutrition.NutritionActivity"></activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/SettingsActivityTitle" />
