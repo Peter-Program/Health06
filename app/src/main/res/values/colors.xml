@@ -8,8 +8,8 @@
     <color name="colorText">#2B2D2F</color>
     <color name="colorBackground">#0Faeaeae</color>
     <color name="colorWorkout">#FFC80A0A</color>
-    <color name="colorNutrition">#FFFF3232</color>
-    <color name="colorWellness">#FFFF3232</color>
-    <color name="colorMain">#FFFF3232</color>
+    <color name="colorNutrition">#FF31D56D</color>
+    <color name="colorWellness">#FFFACD</color>
+    <color name="colorMain">#03188f</color>
 
 </resources>
