@@ -3,4 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+
+    <color name="colorText">#2B2D2F</color>
+    <color name="colorBackground">#0Faeaeae</color>
+    <color name="colorWorkout">#FFFF3232</color>
+    <color name="colorNutrition">#FFFF3232</color>
+    <color name="colorWellness">#FFFF3232</color>
+    <color name="colorMain">#FFFF3232</color>
+
 </resources>
