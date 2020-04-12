@@ -6,11 +6,13 @@
 
 
     <color name="colorText">#2B2D2F</color>
-    <color name="colorBackground">#FFAEAEAE</color>
-    <color name="colorWorkout">#AEAEAE</color>
-    <color name="colorNutrition">#FF31D56D</color>
-    <color name="colorNutritionDark">#FF29BA5E</color>
-    <color name="colorWellness">#d9b834</color>
-    <color name="colorMain">#0318af</color>
+    <color name="colorBackground">#6d7177</color>
+    <color name="colorWorkout">#C80A0A</color>
+    <color name="colorNutrition">#31D56D</color>
+    <color name="colorWellness">#D9B834</color>
+    <color name="colorMainPrime">#1A2A61</color>
+    <color name="colorMainPrimeDark">#000037</color>
+    <color name="colorMainAccent">#4a528f</color>
+
 
 </resources>

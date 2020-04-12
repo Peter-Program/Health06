@@ -8,12 +8,15 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /*
@@ -35,6 +38,13 @@ public class SplashScreen extends AppCompatActivity {
     private static final int PERMISSION_ALL = 2000;
     private ProgressBar progressBar;                                                                // Has a max value of 100
     private int progressBarUpdateValue = 0;
+    private String textUpdateData[] = {"Workout", "Workout", "Nutrition", "Wellness"};
+    private int imageUpdateData[] = {R.drawable.ic_fitness_center_black_24dp,
+                                     R.drawable.ic_fitness_center_black_24dp,
+                                     R.drawable.ic_local_dining_black_24dp,
+                                     R.drawable.ic_local_hospital_black_24dp};
+    TextView splashText;
+    ImageView splashImage;
 
     // Put all permissions that you want here and in the manifest too
     String[] PERMISSIONS = {
@@ -53,6 +63,8 @@ public class SplashScreen extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(0);
+        splashText = findViewById(R.id.splashText);
+        splashImage = findViewById(R.id.splashImage);
 
         checkingPermissions();
     }
@@ -120,18 +132,29 @@ public class SplashScreen extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
 
+            int i = 0;
+            splashText.setText(textUpdateData[i]);
+            splashImage.setImageResource(imageUpdateData[i]);
+            i++;
+
             for (String file: strings) {
                 Log.i(TAG, "Do in Background: " + file);
                 // Read data of "file" here
                 publishProgress(25);
+                splashText.setText(textUpdateData[i]);
+                splashImage.setImageResource(imageUpdateData[i]);
+                i++;
 
                 // Simulating large files
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(1500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 publishProgress(25);
+                splashText.setText(textUpdateData[i]);
+                splashImage.setImageResource(imageUpdateData[i]);
+
             }
             return "Threads are all done";
         }
