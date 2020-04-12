@@ -24,7 +24,6 @@ import java.util.Scanner;
 public class NutritionActivity extends BaseActivity {
 
 
-    final static String path = Environment.getExternalStorageDirectory().getAbsolutePath();
     TextView currentCalories;
     TextView dailyCalories;
     TextView divider;
@@ -59,16 +58,15 @@ public class NutritionActivity extends BaseActivity {
 
     private void loadCalories() {
         try {
-            File file = new File(path, "dailyCalories.txt");
-            Scanner sc = new Scanner(file);
+            FileInputStream fis = openFileInput("dailyCalories.txt");
+            Scanner sc = new Scanner(fis);
             currentCalories.setText(sc.nextLine());
             dailyCalories.setText(sc.nextLine());
             sc.close();
+            fis.close();
         } catch(IOException e){
             e.printStackTrace();
         }
-
-
     }
 
     public void onClickEnterMeal(View view) {

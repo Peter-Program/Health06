@@ -18,7 +18,6 @@ import java.util.Scanner;
 
 public class NutritionEnterMeal extends BaseActivity {
 
-    final static String path = Environment.getExternalStorageDirectory().getAbsolutePath();
     EditText num_cals;
     TextView calorie_guide;
     EditText meal;
@@ -50,24 +49,23 @@ public class NutritionEnterMeal extends BaseActivity {
         int cals = 0;
         String total = "";
         try{
-            File file = new File(path, "dailyCalories.txt");
-            Scanner sc = new Scanner(file);
+            FileInputStream fis = openFileInput("dailyCalories.txt");
+            Scanner sc = new Scanner(fis);
             cals = Integer.valueOf(sc.nextLine());
             total += sc.nextLine();
             sc.close();
+            fis.close();
         } catch (IOException e){
             e.printStackTrace();
         }
 
         try{
-            File file = new File(path, "dailyCalories.txt");
-            FileWriter fileWriter = new FileWriter(file);
 
+            FileOutputStream fos = openFileOutput("dailyCalories.txt", MODE_PRIVATE);
             cals += Integer.valueOf(num_cals.getText().toString());
-
             String fileContent = cals + "\n" + total;
-            fileWriter.write(fileContent);
-            fileWriter.close();
+            fos.write(fileContent.getBytes());
+            fos.close();
         } catch(IOException e){
             e.printStackTrace();
         }
