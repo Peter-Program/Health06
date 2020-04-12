@@ -42,7 +42,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/HomeScreenActivityTitle" />
+            android:label="@string/HomeScreenActivityTitle"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
