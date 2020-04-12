@@ -19,7 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Nutrition.NutritionActivity"></activity>
+        <activity
+            android:name=".Wellness.WellnessActivity"
+            android:label="Wellness"/>
+        <activity
+            android:name=".Nutrition.NutritionActivity"
+            android:label="Nutrition"/>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/SettingsActivityTitle" />

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
 
+
     // App bar menu methods start-------------------------------------------------------------------
     // Menu item list is in res/menu/menu_main_activity
     @Override
