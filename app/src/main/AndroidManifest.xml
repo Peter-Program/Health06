@@ -19,13 +19,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Nutrition.NutritionActivity"></activity>
+        <activity
+            android:name=".Nutrition.NutritionEnterMeal"
+            android:label="@string/EnterMealTitle"
+            android:theme="@style/NutritionTheme" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/SettingsActivityTitle" />
         <activity
             android:name=".Workout.WorkoutActivity"
             android:label="@string/WorkoutActivityTitle" />
+        <activity
+            android:name=".Nutrition.NutritionActivity"
+            android:label="@string/NutritionActivityTitle"
+            android:theme="@style/NutritionTheme" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashTheme">

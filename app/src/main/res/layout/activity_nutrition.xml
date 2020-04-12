@@ -7,8 +7,86 @@
     tools:context=".Nutrition.NutritionActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="408dp"
-        android:layout_height="176dp"
-        android:text="Nutrition is up" />
+        android:id="@+id/Today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Today"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/currentCalories"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="26dp"
+        android:textAlignment="viewEnd"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Today" />
+
+    <TextView
+        android:id="@+id/dailyCalories"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        android:textAlignment="viewStart"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/divider"
+        android:layout_width="32dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/dailyCalories"
+        app:layout_constraintStart_toEndOf="@+id/currentCalories"
+        app:layout_constraintTop_toTopOf="@+id/currentCalories" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:id="@+id/daily_total"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toStartOf="@+id/currentCalories"
+        app:layout_constraintTop_toBottomOf="@+id/currentCalories" />
+
+    <TextView
+        android:id="@+id/daily_goal"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="@+id/dailyCalories"
+        app:layout_constraintTop_toBottomOf="@+id/dailyCalories" />
+
+    <Button
+        android:id="@+id/new_meal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickEnterMeal"
+        android:text="Enter New Meal"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

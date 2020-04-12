@@ -8,22 +8,27 @@
 
     <Button
         android:id="@+id/workoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#F44336"
         android:onClick="onClickWorkout"
         android:text="Workout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="517dp" />
+        app:layout_constraintHeight_percent=".2"
+        app:layout_constraintRight_toLeftOf="@id/nutritionButton"
+        app:layout_constraintWidth_percent=".3"
+        tools:layout_editor_absoluteY="147dp" />
 
     <Button
         android:id="@+id/nutritionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FF31D56D"
+        android:drawableTop="@drawable/ic_restaurant_menu_black_24dp"
         android:onClick="onClickNutrition"
         android:text="Nutrition"
-        tools:layout_editor_absoluteX="264dp"
-        tools:layout_editor_absoluteY="514dp" />
+        app:layout_constraintHeight_percent=".2"
+        app:layout_constraintLeft_toRightOf="@id/workoutButton"
+        app:layout_constraintWidth_percent=".3"
+        tools:layout_editor_absoluteY="147dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

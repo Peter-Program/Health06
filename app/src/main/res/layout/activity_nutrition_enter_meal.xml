@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Nutrition.NutritionEnterMeal">
+
+    <EditText
+        android:id="@+id/meal"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:hint="Enter Meal Name"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/calorie_guide"
+        android:layout_width="103dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="Enter Meal's Calories: "
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/num_cals"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/meal"
+        app:layout_constraintTop_toBottomOf="@+id/meal" />
+
+    <EditText
+        android:id="@+id/num_cals"
+        android:layout_width="75dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="18dp"
+        android:ems="10"
+        android:hint="3000"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/calorie_guide"
+        app:layout_constraintEnd_toStartOf="@+id/cals"
+        app:layout_constraintStart_toEndOf="@+id/calorie_guide"
+        app:layout_constraintTop_toTopOf="@+id/calorie_guide"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/cals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="cals"
+        app:layout_constraintBottom_toBottomOf="@+id/num_cals"
+        app:layout_constraintEnd_toEndOf="@+id/meal"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toEndOf="@+id/num_cals" />
+
+    <Button
+        android:id="@+id/submit_meal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickSubmitMeal"
+        android:text="Enter Meal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

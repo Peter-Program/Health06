@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Health06</string>
     <string name="settings">Settings</string>
     <string name="current_settings">Current Settings</string>
     <string name="about">About</string>
@@ -21,5 +20,11 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="SettingsActivityTitle">Settings</string>
     <string name="WorkoutActivityTitle">Workout</string>
+    <string name="NutritionActivityTitle">Nutrition</string>
+    <string name="EnterMealTitle">Enter Meal</string>
     <string name="HomeScreenActivityTitle">Home</string>
+    <string name="app_name" translatable="false">Health</string>
+
+    <string name="enter_meal">Enter A Meal</string>
+    <string name="button_meal">Add Meal</string>
 </resources>

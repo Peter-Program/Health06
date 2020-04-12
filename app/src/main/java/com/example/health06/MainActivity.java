@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.health06.Nutrition.NutritionActivity;
 import com.example.health06.Workout.WorkoutActivity;
+
+import java.io.*;
 
 public class MainActivity extends BaseActivity {
 
@@ -36,10 +39,30 @@ public class MainActivity extends BaseActivity {
     }
 
     public void onClickNutrition(View view) {
-        Toast.makeText(this, "Clicked Nutrition",
-                Toast.LENGTH_SHORT).show();
+        initializeCalorieFile();
         Intent intent = new Intent(this, NutritionActivity.class);
         startActivity(intent);
+    }
+
+    private void initializeCalorieFile() {
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath();
+        File file = new File(path, "dailyCalories.txt");
+
+        try {
+            // create if it doesn't already exist
+            if(file.createNewFile()){
+                // later calculate some type of calories/day
+                // for now just choose 2500
+                FileOutputStream stream = new FileOutputStream(file);
+                stream.write("0\n2500\n".getBytes());
+                stream.close();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 
