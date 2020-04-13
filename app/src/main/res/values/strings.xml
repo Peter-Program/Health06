@@ -24,6 +24,7 @@
     <string name="EnterMealTitle">Enter Meal</string>
     <string name="HomeScreenActivityTitle">Home</string>
     <string name="app_name" translatable="false">Health</string>
+    <string name="workouttextview">Workouts</string>
 
     <string name="enter_meal">Enter A Meal</string>
     <string name="button_meal">Add Meal</string>
