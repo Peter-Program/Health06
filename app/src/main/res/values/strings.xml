@@ -25,7 +25,12 @@
     <string name="HomeScreenActivityTitle">Home</string>
     <string name="app_name" translatable="false">Health</string>
     <string name="workouttextview">Workouts</string>
+    <string name="customWorkoutPageTitle">Custom Workouts</string>
 
     <string name="enter_meal">Enter A Meal</string>
     <string name="button_meal">Add Meal</string>
+    <string name="todaysWorkoutButton">Today\'s Workout</string>
+    <string name="insert_workout_here">insert standard workout here</string>
+    <string name="insert_advanced_workout_here">insert advanced workout here</string>
+
 </resources>

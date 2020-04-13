@@ -31,7 +31,8 @@
             android:label="@string/SettingsActivityTitle" />
         <activity
             android:name=".Workout.WorkoutActivity"
-            android:label="@string/WorkoutActivityTitle" />
+            android:label="@string/WorkoutActivityTitle"
+            android:theme="@style/WorkoutTheme"/>
         <activity
             android:name=".Nutrition.NutritionActivity"
             android:label="@string/NutritionActivityTitle"
@@ -49,6 +50,14 @@
             android:name=".MainActivity"
             android:label="@string/HomeScreenActivityTitle"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Workout.TodaysWorkout"
+            android:label="Today\'s Workout"
+            android:theme="@style/WorkoutTheme"/>
+        <activity
+            android:name=".Workout.CustomWorkout"
+            android:label="Custom Workouts"
+            android:theme="@style/WorkoutTheme"/>
     </application>
 
 </manifest>
