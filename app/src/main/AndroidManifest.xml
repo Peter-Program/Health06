@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.health06">
 
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -20,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".Wellness.WellnessActivity"
+            android:label="Wellness"/>
         <activity
             android:name=".Nutrition.NutritionEnterMeal"
             android:label="@string/EnterMealTitle"
@@ -46,7 +48,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/HomeScreenActivityTitle"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

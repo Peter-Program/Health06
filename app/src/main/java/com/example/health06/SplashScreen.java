@@ -41,7 +41,7 @@ public class SplashScreen extends AppCompatActivity {
     private String textUpdateData[] = {"Workout", "Workout", "Nutrition", "Wellness"};
     private int imageUpdateData[] = {R.drawable.ic_fitness_center_black_24dp,
                                      R.drawable.ic_fitness_center_black_24dp,
-                                     R.drawable.ic_local_dining_black_24dp,
+                                     R.drawable.ic_restaurant_menu_black_24dp,
                                      R.drawable.ic_local_hospital_black_24dp};
     TextView splashText;
     ImageView splashImage;

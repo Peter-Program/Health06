@@ -16,7 +16,6 @@
     <style name="NutritionTheme" parent="Theme.AppCompat">
         <item name="android:windowBackground">@color/colorBackground</item>
         <item name="colorPrimary">@color/colorNutrition</item>
-        <item name="colorPrimaryDark">@color/colorNutritionDark</item>
         <item name="colorAccent">@color/colorNutrition</item>
         <item name="android:textColor">@color/colorText</item>
     </style>
