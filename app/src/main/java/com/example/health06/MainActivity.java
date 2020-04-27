@@ -21,8 +21,6 @@ import java.io.*;
 
 public class MainActivity extends BaseActivity {
 
-    boolean created = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,27 +55,6 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    private void initializeCalorieFile() {
-
-        String fileName = "dailyCalories.txt";
-        File file = new File(getFilesDir(), fileName);
-        FileOutputStream fos;
-
-        try {
-                if(created == false){
-                fos = new FileOutputStream(file);
-                fos.write("0\n2500\n".getBytes());
-                fos.close();
-                created = true;
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
     }
 
 

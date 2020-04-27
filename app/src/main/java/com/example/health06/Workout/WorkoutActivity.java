@@ -24,12 +24,12 @@ public class WorkoutActivity extends BaseActivity {
     }
 
     public void onClickEnterCustomWorkout(View view) {
-        Intent intent = new Intent(this, CustomWorkout.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, CustomWorkout.class);
+        //startActivity(intent);
     }
 
     public void onClickEnterTodaysWorkout(View view) {
-        Intent intent = new Intent(this, TodaysWorkout.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, TodaysWorkout.class);
+        //startActivity(intent);
     }
 }

@@ -13,6 +13,10 @@
     <color name="colorMainPrime">#1A2A61</color>
     <color name="colorMainPrimeDark">#000037</color>
     <color name="colorMainAccent">#4a528f</color>
+    <color name="colorEndProgress">#606061</color>
+    <color name="colorVeryFull">#E18905</color>
+    <color name="colorFilled">#DA0E0E</color>
+    <color name="colorHintText">#2B2D2F</color>
 
 
 </resources>

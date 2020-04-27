@@ -36,7 +36,6 @@ public class NutritionEnterMeal extends BaseActivity {
 
     }
 
-
     public void onClickSubmitMeal(View view) {
         Toast.makeText(this, "Meal Submitted",
                 Toast.LENGTH_SHORT).show();
