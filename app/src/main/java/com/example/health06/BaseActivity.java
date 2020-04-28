@@ -22,8 +22,6 @@ public class BaseActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.menuMainActivitySettings:                                                     // When clicking on Settings
-                Toast.makeText(this, "Clicked Settings",
-                        Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.menuMainActivityAbout:
@@ -32,8 +30,6 @@ public class BaseActivity extends AppCompatActivity {
                 return true;
 
             case R.id.menuMainActivityCurrentSettings:
-                Toast.makeText(this, "Clicked Current Settings",
-                        Toast.LENGTH_SHORT).show();
                 Intent currentSettingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(currentSettingsIntent);
                 return true;
