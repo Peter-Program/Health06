@@ -25,9 +25,11 @@ public class SettingsActivity extends BaseActivity {
     public static String WEIGHT_DEFAULT = "150";
     public static String HEIGHT_DEFAULT = "6";
     public static int PROGRESS_DEFAULT = 23;
+    public static int AGE_DEFAULT = 25;
 
     EditText weightText;
     EditText heightText;
+    EditText ageText;
     TextView progressView;
     Button clrBtn;
     Button restoreBtn;
@@ -44,6 +46,7 @@ public class SettingsActivity extends BaseActivity {
         heightText = findViewById(R.id.heightText);
         progressView = findViewById(R.id.progressView);
         saveBtn = findViewById(R.id.settingsSaveBtn);
+        ageText = findViewById(R.id.userAgeText);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
@@ -115,6 +118,7 @@ public class SettingsActivity extends BaseActivity {
         editor.putString(getString(R.string.PREF_HEIGHT), heightText.getText().toString());
         editor.putString(getString(R.string.PREF_WEIGHT), weightText.getText().toString());
         editor.putInt(getString(R.string.PREF_PROGRESS), getProgressValue());
+        editor.putInt(getString(R.string.PREF_AGE), Integer.parseInt(ageText.getText().toString()));
         editor.apply();
     }
 
@@ -131,6 +135,9 @@ public class SettingsActivity extends BaseActivity {
 
         int progress = prefs.getInt(getString(R.string.PREF_PROGRESS), PROGRESS_DEFAULT);
         progressView.setText(progress + " %");
+
+        int age = prefs.getInt(getString(R.string.PREF_AGE), AGE_DEFAULT);
+        ageText.setText(age + "");
 //        String thresh = prefs.getString(getString(R.string.PREF_NOTIFICATION_THRESHOLD), THRESHOLD_DEFAULT);
 //        threshold.setText(thresh);
     }
