@@ -9,6 +9,7 @@
     <color name="colorBackground">#C6C7C8</color>
     <color name="colorWorkout">#C80A0A</color>
     <color name="colorNutrition">#31D56D</color>
+    <color name="colorNutritionCircle">#12B04B</color>
     <color name="colorWellness">#D9B834</color>
     <color name="colorMainPrime">#1A2A61</color>
     <color name="colorMainPrimeDark">#000037</color>
