@@ -126,7 +126,7 @@ public class TrackNutritionProgress extends BaseActivity {
         ll1.setLineWidth(2.4f);
         ll1.enableDashedLine(10f, 10f, 0f);
         ll1.setLineColor(ContextCompat.getColor(getApplicationContext(),R.color.colorText));
-        ll1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+        ll1.setLabelPosition(LimitLine.LimitLabelPosition.LEFT_TOP);
         ll1.setTextSize(14f);
         leftAxis.addLimitLine(ll1);
 
