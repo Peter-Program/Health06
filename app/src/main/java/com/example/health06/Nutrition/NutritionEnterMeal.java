@@ -14,7 +14,9 @@ import android.widget.Toast;
 
 import java.io.*;
 import java.util.Scanner;
-
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class NutritionEnterMeal extends BaseActivity {
 
@@ -22,6 +24,11 @@ public class NutritionEnterMeal extends BaseActivity {
     TextView calorie_guide;
     EditText meal;
     Button submit_meal;
+
+    private static final String calorieFile = "dailyCalories.txt";
+    private static final String todaysMealsFile = "todaysMeals.txt";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +44,9 @@ public class NutritionEnterMeal extends BaseActivity {
     }
 
     public void onClickSubmitMeal(View view) {
-        Toast.makeText(this, "Meal Submitted",
+        Toast.makeText(this, "Meal Entered",
                 Toast.LENGTH_SHORT).show();
+        addToTodaysMeals();
         updateCalories();
         Intent intent = new Intent(this, NutritionActivity.class);
         startActivity(intent);
@@ -48,7 +56,7 @@ public class NutritionEnterMeal extends BaseActivity {
         int cals = 0;
         String total = "";
         try{
-            FileInputStream fis = openFileInput("dailyCalories.txt");
+            FileInputStream fis = openFileInput(calorieFile);
             Scanner sc = new Scanner(fis);
             cals = Integer.valueOf(sc.nextLine());
             total += sc.nextLine();
@@ -60,12 +68,34 @@ public class NutritionEnterMeal extends BaseActivity {
 
         try{
 
-            FileOutputStream fos = openFileOutput("dailyCalories.txt", MODE_PRIVATE);
+            FileOutputStream fos = openFileOutput(calorieFile, MODE_PRIVATE);
             cals += Integer.valueOf(num_cals.getText().toString());
             String fileContent = cals + "\n" + total;
             fos.write(fileContent.getBytes());
             fos.close();
         } catch(IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    private void updateMeals() {
+
+    }
+
+    //initialize meals file
+    private void addToTodaysMeals(){
+        FileOutputStream fos;
+        try {
+            //append MEAL
+
+            fos = openFileOutput(todaysMealsFile, MODE_APPEND);
+            String currMeal = meal.getText().toString();
+            currMeal = currMeal.replace('|', '#');
+            String mealInfo = currMeal + "|" + num_cals.getText().toString() + " calories" + "\n";
+            fos.write(mealInfo.getBytes());
+            fos.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

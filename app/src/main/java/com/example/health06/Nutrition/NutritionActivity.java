@@ -6,25 +6,34 @@ import androidx.core.content.res.ResourcesCompat;
 
 import com.example.health06.BaseActivity;
 import com.example.health06.R;
+import com.example.health06.Nutrition.ExpandableListAdapter;
 
 
 import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.renderscript.ScriptGroup;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Calendar;
 
@@ -35,6 +44,7 @@ public class NutritionActivity extends BaseActivity {
     TextView currentCalories;
     TextView dailyCalories;
     TextView divider;
+    TextView list_title;
 
     TextView daily_goal;
     TextView daily_total;
@@ -42,8 +52,14 @@ public class NutritionActivity extends BaseActivity {
 
     Button new_meal;
 
-    static final private String fileName = "dailyCalories.txt";
-    static private int currentDay;
+    private static final String calorieFile = "dailyCalories.txt";
+    private static final String todaysMealsFile = "todaysMeals.txt";
+
+    private ExpandableListAdapter mealsAdapter;
+    private ExpandableListView todaysMeals;
+    private List<String> listDataHeader;
+    private HashMap<String, List<String>> listDataChild;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,18 +77,36 @@ public class NutritionActivity extends BaseActivity {
         daily_total = findViewById(R.id.daily_total);
         new_meal = findViewById(R.id.new_meal);
         calorieProgress = findViewById(R.id.calorieProgress);
+        list_title = findViewById(R.id.list_title);
 
-        Calendar c = Calendar.getInstance();
-        int day = c.get(Calendar.DAY_OF_MONTH);
-        if(day != currentDay){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int lastInitialized = prefs.getInt("DayOfYear", -1);
+        int date = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+        if(date != lastInitialized){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("DayOfYear",date);
             initializeDailyCalories();
-            currentDay = day;
+            initializeDailyMeals();
         }
+
         loadCalories();
 
         divider.setText("/");
         daily_goal.setText("Target Calories");
         daily_total.setText("Current Calories");
+
+
+        // get the listview
+        todaysMeals = (ExpandableListView) findViewById(R.id.todaysMeals);
+
+        //ready the list
+        loadMeals();
+
+        mealsAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+
+        //set adapter
+        todaysMeals.setAdapter(mealsAdapter);
+
     }
 
     private void loadCalories() {
@@ -80,7 +114,7 @@ public class NutritionActivity extends BaseActivity {
         try {
 
             //set the fractional view
-            FileInputStream fis = openFileInput(fileName);
+            FileInputStream fis = openFileInput(calorieFile);
             Scanner sc = new Scanner(fis);
             currentCalories.setText(sc.nextLine());
             dailyCalories.setText(sc.nextLine());
@@ -125,7 +159,7 @@ public class NutritionActivity extends BaseActivity {
     //reset or initialize caloric intake count to 0 vs daily calorie total of 2500
     private void initializeDailyCalories(){
 
-            File file = new File(getFilesDir(), fileName);
+            File file = new File(getFilesDir(), calorieFile);
             FileOutputStream fos;
 
             try {
@@ -138,12 +172,62 @@ public class NutritionActivity extends BaseActivity {
 
     }
 
+
+    private void loadMeals(){
+
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        try {
+
+            //Set meal list
+            FileInputStream fis = openFileInput(todaysMealsFile);
+            Scanner sc = new Scanner(fis);
+            //empty
+            if(sc.hasNext() != false){
+                list_title.setText("Today's Meals");
+            }
+            while(sc.hasNext()){
+                String line = sc.nextLine();
+                String[] info = line.split("\\|");
+                listDataHeader.add(info[0]);
+                listDataChild.put(info[0], Arrays.asList(info[1]));
+            }
+
+
+            sc.close();
+            fis.close();
+
+        } catch(FileNotFoundException er){
+            initializeDailyMeals();
+            loadMeals();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    //reset or initialize caloric intake count to 0 vs daily calorie total of 2500
+    private void initializeDailyMeals(){
+
+        File file = new File(getFilesDir(), todaysMealsFile);
+        FileOutputStream fos;
+
+        try {
+            fos = new FileOutputStream(file);
+            fos.write("".getBytes());
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void onClickEnterMeal(View view) {
         Intent intent = new Intent(this, NutritionEnterMeal.class);
         startActivity(intent);
     }
-
-
 
 
 }
