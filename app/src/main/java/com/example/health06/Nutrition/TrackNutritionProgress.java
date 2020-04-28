@@ -1,8 +1,11 @@
 package com.example.health06.Nutrition;
+import com.example.health06.MainActivity;
 import com.example.health06.R;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -17,6 +20,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.health06.R;
 import com.example.health06.BaseActivity;
@@ -40,6 +44,10 @@ public class TrackNutritionProgress extends BaseActivity {
         setContentView(R.layout.activity_track_nutrition_progress);
         caloriesOverTime = new ArrayList<>();
         pointColors = new ArrayList<>();
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null)
+            actionBar.setDisplayHomeAsUpEnabled(true);
 
         chart = findViewById(R.id.chart);
 
@@ -132,6 +140,12 @@ public class TrackNutritionProgress extends BaseActivity {
 
         chart.invalidate(); // refresh
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), NutritionActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
     }
 
 }

@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.example.health06.BaseActivity;
+import com.example.health06.MainActivity;
 import com.example.health06.R;
 import com.example.health06.Nutrition.ExpandableListAdapter;
 
@@ -20,6 +21,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.renderscript.ScriptGroup;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
@@ -251,6 +253,12 @@ public class NutritionActivity extends BaseActivity {
     public void onClickProgress(View view){
         Intent intent = new Intent(this, TrackNutritionProgress.class);
         startActivity(intent);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
     }
 
 

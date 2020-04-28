@@ -136,27 +136,59 @@ public class SplashScreen extends AppCompatActivity {
         protected String doInBackground(String... strings) {
 
             int i = 0;
-            splashText.setText(textUpdateData[i]);
-            splashImage.setImageResource(imageUpdateData[i]);
+
+            final int finalI = i;
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    // Stuff that updates the UI
+                    splashText.setText(textUpdateData[finalI]);
+                    splashImage.setImageResource(imageUpdateData[finalI]);
+                }
+            });
             i++;
 
             for (String file: strings) {
                 Log.i(TAG, "Do in Background: " + file);
                 // Read data of "file" here
                 publishProgress(25);
-                splashText.setText(textUpdateData[i]);
-                splashImage.setImageResource(imageUpdateData[i]);
+
+                final int finalI1 = i;
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        // Stuff that updates the UI
+                        splashText.setText(textUpdateData[finalI1]);
+                        splashImage.setImageResource(imageUpdateData[finalI1]);
+                    }
+                });
+
                 i++;
 
                 // Simulating large files
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 publishProgress(25);
-                splashText.setText(textUpdateData[i]);
-                splashImage.setImageResource(imageUpdateData[i]);
+
+                final int finalI2 = i;
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        // Stuff that updates the UI
+                        splashText.setText(textUpdateData[finalI2]);
+                        splashImage.setImageResource(imageUpdateData[finalI2]);
+                    }
+                });
+
             }
             return "Threads are all done";
         }

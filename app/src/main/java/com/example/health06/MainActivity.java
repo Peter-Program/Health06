@@ -128,11 +128,6 @@ public class MainActivity extends BaseActivity {
         progressText.setText(workoutComp + progressBar.getProgress() + "%");
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        loadProgress();
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
