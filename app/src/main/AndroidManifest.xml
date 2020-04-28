@@ -20,8 +20,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".clearProgressPopUp"
+            android:theme="@style/AppTheme.CustomThemePopup"/>
+        <activity
             android:name=".Wellness.WellnessActivity"
-            android:label="Wellness"/>
+            android:label="Wellness" />
         <activity
             android:name=".Nutrition.NutritionEnterMeal"
             android:label="@string/EnterMealTitle"
@@ -32,7 +35,7 @@
         <activity
             android:name=".Workout.WorkoutActivity"
             android:label="@string/WorkoutActivityTitle"
-            android:theme="@style/WorkoutTheme"/>
+            android:theme="@style/WorkoutTheme" />
         <activity
             android:name=".Nutrition.NutritionActivity"
             android:label="@string/NutritionActivityTitle"
@@ -52,12 +55,12 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Workout.TodaysWorkout"
-            android:label="Today\'s Workout"
-            android:theme="@style/WorkoutTheme"/>
+            android:label="Today\&apos;s Workout"
+            android:theme="@style/WorkoutTheme" />
         <activity
             android:name=".Workout.CustomWorkout"
             android:label="Custom Workouts"
-            android:theme="@style/WorkoutTheme"/>
+            android:theme="@style/WorkoutTheme" />
     </application>
 
 </manifest>

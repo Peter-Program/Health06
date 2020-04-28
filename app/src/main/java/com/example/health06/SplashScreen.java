@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -18,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static com.example.health06.SettingsActivity.MY_GLOBAL_PREFS;
+import static com.example.health06.SettingsActivity.WEIGHT_DEFAULT;
 
 /*
  * So, If user has granted us all permissions that we need then before launching into the main

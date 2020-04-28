@@ -33,4 +33,20 @@
     <string name="insert_workout_here">insert standard workout here</string>
     <string name="insert_advanced_workout_here">insert advanced workout here</string>
 
+    <!-- Quotes -->
+    <string name="Q1"> "We are what we repeatedly do. Excellence then is not an act but a habit." - Aristotle</string>
+    <string name="Q2"> "The difference between the impossible and the possible lies in a person's determination." - Tommy Lasorda</string>
+    <string name="Q3"> "To give anything less than your best is to sacrifice the gift." - Steve Prefontaine</string>
+    <string name="Q4"> "Strength does not come from physical capacity. It comes from an indomitable will." - Mahatma Gandhi</string>
+    <string name="Q5"> "The worst thing I can be is the same as everybody else." - Arnold Schwarzenegger</string>
+
+    <!-- Preference Keys -->
+    <string name="PREF_WEIGHT"> Weight Pref</string>
+    <string name="PREF_HEIGHT"> Height Pref</string>
+    <string name="PREF_PROGRESS"> ProgressPref</string>
+
+
+    <string name="motivation_station"><b><u>Motivation Station:</u></b></string>
+
+
 </resources>

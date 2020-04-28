@@ -7,12 +7,15 @@
 
     <color name="colorText">#2B2D2F</color>
     <color name="colorBackground">#C6C7C8</color>
+    <color name="colorBackgroundProgressBar">#A4A4A4</color>
     <color name="colorWorkout">#C80A0A</color>
     <color name="colorNutrition">#31D56D</color>
     <color name="colorWellness">#D9B834</color>
     <color name="colorMainPrime">#1A2A61</color>
     <color name="colorMainPrimeDark">#000037</color>
     <color name="colorMainAccent">#4a528f</color>
+    <color name="colorBlack">#000000</color>
+    <color name="grey_05">#6f6f6f</color>
 
 
 </resources>

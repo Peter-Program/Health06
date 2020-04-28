@@ -23,13 +23,13 @@ public class WorkoutActivity extends BaseActivity {
         if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    public void onClickEnterCustomWorkout(View view) {
-        Intent intent = new Intent(this, CustomWorkout.class);
-        startActivity(intent);
-    }
-
-    public void onClickEnterTodaysWorkout(View view) {
-        Intent intent = new Intent(this, TodaysWorkout.class);
-        startActivity(intent);
-    }
+//    public void onClickEnterCustomWorkout(View view) {
+//        Intent intent = new Intent(this, CustomWorkout.class);
+//        startActivity(intent);
+//    }
+//
+//    public void onClickEnterTodaysWorkout(View view) {
+//        Intent intent = new Intent(this, TodaysWorkout.class);
+//        startActivity(intent);
+//    }
 }

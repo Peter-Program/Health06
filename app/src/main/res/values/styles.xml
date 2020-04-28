@@ -26,4 +26,10 @@
         <item name="colorAccent">@color/colorWorkout</item>
     </style>
 
+    <style name="AppTheme.CustomThemePopup" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowBackground">@color/grey_05</item>
+    </style>
+
 </resources>

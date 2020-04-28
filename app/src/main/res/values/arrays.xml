@@ -14,4 +14,15 @@
         <item>Weight Loss</item>
         <item>Strength Training</item>
     </string-array>
+
+    <string-array name="user_measurement_weight">
+        <item>lb</item>
+        <item>kg</item>
+    </string-array>
+
+    <string-array name="user_measurement_hight">
+        <item>ft</item>
+        <item>cm</item>
+    </string-array>
+
 </resources>
