@@ -51,14 +51,18 @@ public class NutritionActivity extends BaseActivity {
     ProgressBar calorieProgress;
 
     Button new_meal;
+    Button progress;
 
     private static final String calorieFile = "dailyCalories.txt";
     private static final String todaysMealsFile = "todaysMeals.txt";
+    private static final String calorieProgressFile = "calorieTracker.txt";
 
     private ExpandableListAdapter mealsAdapter;
     private ExpandableListView todaysMeals;
     private List<String> listDataHeader;
     private HashMap<String, List<String>> listDataChild;
+
+
 
 
     @Override
@@ -76,6 +80,7 @@ public class NutritionActivity extends BaseActivity {
         daily_goal = findViewById(R.id.daily_goal);
         daily_total = findViewById(R.id.daily_total);
         new_meal = findViewById(R.id.new_meal);
+        progress = findViewById(R.id.progress);
         calorieProgress = findViewById(R.id.calorieProgress);
         list_title = findViewById(R.id.list_title);
 
@@ -85,6 +90,7 @@ public class NutritionActivity extends BaseActivity {
         if(date != lastInitialized){
             SharedPreferences.Editor editor = prefs.edit();
             editor.putInt("DayOfYear",date);
+            editor.commit();
             initializeDailyCalories();
             initializeDailyMeals();
         }
@@ -147,11 +153,7 @@ public class NutritionActivity extends BaseActivity {
                 progressDrawable.setColorFilter(ContextCompat.getColor(calorieProgress.getContext(), R.color.colorNutrition), PorterDuff.Mode.SRC_IN);
             }
 
-        } catch (FileNotFoundException noFile){
-            initializeDailyCalories();
-            loadCalories();
-        }
-        catch(IOException e){
+        } catch(IOException e){
             e.printStackTrace();
         }
     }
@@ -159,16 +161,38 @@ public class NutritionActivity extends BaseActivity {
     //reset or initialize caloric intake count to 0 vs daily calorie total of 2500
     private void initializeDailyCalories(){
 
-            File file = new File(getFilesDir(), calorieFile);
-            FileOutputStream fos;
+        File file = getApplicationContext().getFileStreamPath(calorieFile);
+        if(file == null || !file.exists()) {
 
+        }else{
+            //for storing caloric intake by day
             try {
-                fos = new FileOutputStream(file);
-                fos.write("0\n2500\n".getBytes());
-                fos.close();
-            } catch (IOException e) {
+                FileInputStream fis = openFileInput(calorieFile);
+                Scanner sc = new Scanner(fis);
+                //empty
+                if(sc.hasNextLine() == true){
+                    String endCals = sc.nextLine();
+                    FileOutputStream fos = openFileOutput(calorieProgressFile, MODE_APPEND);
+                    fos.write((endCals + ",").getBytes());
+                }
+                sc.close();
+                fis.close();
+
+            }
+            catch(IOException e){
                 e.printStackTrace();
             }
+        }
+
+
+        //initialize file
+        try {
+            FileOutputStream fos = openFileOutput(calorieFile, MODE_PRIVATE);
+            fos.write("0\n2500\n".getBytes());
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -198,11 +222,7 @@ public class NutritionActivity extends BaseActivity {
             sc.close();
             fis.close();
 
-        } catch(FileNotFoundException er){
-            initializeDailyMeals();
-            loadMeals();
-        }
-        catch(IOException e){
+        } catch(IOException e){
             e.printStackTrace();
         }
 
@@ -211,11 +231,10 @@ public class NutritionActivity extends BaseActivity {
     //reset or initialize caloric intake count to 0 vs daily calorie total of 2500
     private void initializeDailyMeals(){
 
-        File file = new File(getFilesDir(), todaysMealsFile);
         FileOutputStream fos;
 
         try {
-            fos = new FileOutputStream(file);
+            fos = openFileOutput(todaysMealsFile, MODE_PRIVATE);
             fos.write("".getBytes());
             fos.close();
         } catch (IOException e) {
@@ -226,6 +245,11 @@ public class NutritionActivity extends BaseActivity {
 
     public void onClickEnterMeal(View view) {
         Intent intent = new Intent(this, NutritionEnterMeal.class);
+        startActivity(intent);
+    }
+
+    public void onClickProgress(View view){
+        Intent intent = new Intent(this, TrackNutritionProgress.class);
         startActivity(intent);
     }
 
