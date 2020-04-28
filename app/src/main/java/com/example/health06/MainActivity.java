@@ -35,6 +35,7 @@ public class MainActivity extends BaseActivity {
     LinkedList<String> ls = new LinkedList<>();
     ProgressBar progressBar;
     TextView progressText;
+    String workoutComp = "Workout Completion ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +50,8 @@ public class MainActivity extends BaseActivity {
         progressBar = findViewById(R.id.progressBarMain);
         progressText = findViewById(R.id.progressPercentage);
 
-        loadProgress();
-
-
         loadQuotes();
+        loadProgress();
         setRandomQuote();
 
         workoutLayout.setOnClickListener(new View.OnClickListener() {
@@ -80,11 +79,6 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        loadProgress();
-    }
 
     private void initializeCalorieFile() {
 
@@ -131,7 +125,22 @@ public class MainActivity extends BaseActivity {
                 getSharedPreferences(MY_GLOBAL_PREFS, MODE_PRIVATE);
         int progress = prefs.getInt(getString(R.string.PREF_PROGRESS), PROGRESS_DEFAULT);
         progressBar.setProgress(progress);
-        progressText.setText("" + progressBar.getProgress() + "%");
+        progressText.setText(workoutComp + progressBar.getProgress() + "%");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadProgress();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == REQUEST_CODE) {
+            loadProgress();
+        }
     }
 
 }

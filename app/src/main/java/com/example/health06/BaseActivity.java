@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
+    int REQUEST_CODE = 444;
 
     // App bar menu methods start-------------------------------------------------------------------
     // Menu item list is in res/menu/menu_main_activity
@@ -31,7 +32,7 @@ public class BaseActivity extends AppCompatActivity {
 
             case R.id.menuMainActivityCurrentSettings:
                 Intent currentSettingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(currentSettingsIntent);
+                startActivityForResult(currentSettingsIntent, REQUEST_CODE);
                 return true;
 
             case android.R.id.home:

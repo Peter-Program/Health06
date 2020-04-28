@@ -32,7 +32,7 @@ public class clearProgressPopUp extends BaseActivity {
 
         // Setting popup window activity to be 80% of the width of the device
         // and 70% of the height of the device
-        getWindow().setLayout((int)(width * 0.8), (int) (height * 0.7));
+        getWindow().setLayout((int)(width * 0.8), (int) (height * 0.5));
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

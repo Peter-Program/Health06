@@ -28,22 +28,22 @@ public class SettingsActivity extends BaseActivity {
 
     EditText weightText;
     EditText heightText;
-    EditText progressText;
     TextView progressView;
     Button clrBtn;
-    Button setBtn;
+    Button restoreBtn;
+    Button saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        clrBtn = findViewById(R.id.btnSetProgress);
-        setBtn = findViewById(R.id.btnSetProgress);
+        clrBtn = findViewById(R.id.btnClearProgress2);
+        restoreBtn = findViewById(R.id.btnSetProgress);
         weightText = findViewById(R.id.weightText);
         heightText = findViewById(R.id.heightText);
-        progressText = findViewById(R.id.progressText);
         progressView = findViewById(R.id.progressView);
+        saveBtn = findViewById(R.id.settingsSaveBtn);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
@@ -53,27 +53,37 @@ public class SettingsActivity extends BaseActivity {
 
         loadPref();
 
+        setResult(REQUEST_CODE);
+
         clrBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), clearProgressPopUp.class);
-                startActivity(intent);
+                progressView.setText(0 + "%");
+                Toast.makeText(v.getContext(), "Cleared Progress",
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
-        setBtn.setOnClickListener(new View.OnClickListener() {
+        restoreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int p = Integer.parseInt(progressText.getText().toString());
-                if (p >= 0 && p < 100) {
-                    progressView.setText(p + " %");
-                } else {
-                    Toast.makeText(v.getContext(), "Must be a value between 0 and 100",
-                            Toast.LENGTH_SHORT).show();
-                }
-
+                progressView.setText(PROGRESS_DEFAULT + "%");
+                Toast.makeText(v.getContext(), "Restored Progress",
+                        Toast.LENGTH_SHORT).show();
             }
         });
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                savePref();
+                Toast.makeText(v.getContext(), "Saved Data",
+                        Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+
     }
 
     @Override
@@ -81,7 +91,6 @@ public class SettingsActivity extends BaseActivity {
         super.onDestroy();
         // Saving preferences
         savePref();
-
     }
 
     @Override
@@ -122,7 +131,6 @@ public class SettingsActivity extends BaseActivity {
 
         int progress = prefs.getInt(getString(R.string.PREF_PROGRESS), PROGRESS_DEFAULT);
         progressView.setText(progress + " %");
-        progressText.setText(progress + "");
 //        String thresh = prefs.getString(getString(R.string.PREF_NOTIFICATION_THRESHOLD), THRESHOLD_DEFAULT);
 //        threshold.setText(thresh);
     }
