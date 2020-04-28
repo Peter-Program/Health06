@@ -7,33 +7,60 @@
     tools:context=".Workout.WorkoutActivity">
 
     <Button
+        android:id="@+id/customWorkoutButton"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="26dp"
+        android:background="@color/colorWorkout"
+        android:onClick="onClickEnterCustomWorkout"
+        android:text="@string/customWorkoutPageTitle"
+        android:textColor="#FCFDFF"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todayButton" />
+
+    <Button
         android:id="@+id/todayButton"
         android:layout_width="250dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="250dp"
-        android:background="@color/colorWorkout"
-        android:text="@string/todaysWorkoutButton"
+        android:layout_height="150dp"
+        android:layout_marginTop="44dp"
+        android:background="#FF0A0A"
         android:onClick="onClickEnterTodaysWorkout"
-        android:textColor="@color/colorBackground"
+        android:text="@string/todaysWorkoutButton"
+        android:textColor="#FAFAFA"
         android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="Workout Home"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWorkout"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/customWorkoutButton"
-        android:layout_width="250dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="375dp"
-        android:onClick="onClickEnterCustomWorkout"
-        android:background="@color/colorWorkout"
-        android:text="@string/customWorkoutPageTitle"
-        android:textColor="@color/colorBackground"
-        android:textSize="22sp"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="232dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:srcCompat="@drawable/dumbbell_clipart_png_6_transparent"
+        android:contentDescription="@string/customWorkoutPageTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

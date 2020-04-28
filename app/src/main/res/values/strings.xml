@@ -48,6 +48,11 @@
 
 
     <string name="motivation_station"><b><u>Motivation Station:</u></b></string>
+    <string name="previously_created_workouts">Previously Created Workouts</string>
+    <string name="activity">Activity:</string>
+    <string name="sets">Sets:</string>
+    <string name="reps">Reps:</string>
+    <string name="weight">Weight:</string>
 
 
 </resources>
