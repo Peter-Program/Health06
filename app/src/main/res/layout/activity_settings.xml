@@ -73,9 +73,11 @@
         android:layout_height="41dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="Set Progress"
+        android:text="Restore Progress"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/btnClearProgress2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnClearProgress2"
@@ -112,17 +114,6 @@
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline9" />
-
-    <EditText
-        android:id="@+id/progressText"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/guideline10"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3" />
 
     <EditText
         android:id="@+id/weightText"
@@ -225,5 +216,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="329dp" />
+
+    <Button
+        android:id="@+id/settingsSaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
