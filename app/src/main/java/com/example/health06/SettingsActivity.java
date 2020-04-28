@@ -89,12 +89,6 @@ public class SettingsActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // Saving preferences
-        savePref();
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
